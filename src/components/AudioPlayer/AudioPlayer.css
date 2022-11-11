@@ -1,8 +1,15 @@
+:root {
+  --lPurple: #270045;
+  --dPurple: #051443;
+  --themeBlue: rgb(12, 87, 134);
+}
+
 .PlayerPage {
   height: 100vh;
   display: grid;
   grid-template-rows: repeat(auto, 3);
   text-align: center;
+  background: linear-gradient(300deg, var(--dPurple), var(--lPurple));
 }
 
 .Banner {
@@ -25,7 +32,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding-top: 15vh;
+  padding-top: 10vh;
 }
 
 .radio-frequency {
@@ -35,6 +42,7 @@
 
 .radio-name {
   font-weight: normal;
+  color: white; 
 }
 
 .radio-description {

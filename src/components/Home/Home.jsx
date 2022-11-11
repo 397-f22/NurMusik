@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { tags } from "../../utilities/constants";
+import { tagMappings } from "../../utilities/constants";
 import "./Home.css";
 
 const Home = () => {
@@ -9,22 +9,29 @@ const Home = () => {
       pathname: `/genres/${tags}`,
     });
 
+  const tags = Object.keys(tagMappings);
+
   return (
     <>
-      <div className="homePage">
-        <div className="Banner">
-          {/* <i className="bi bi-arrow-left"></i> */}
-          <h1 className="BannerTitle">NurMusik</h1>
-          {/* <i className="bi bi-three-dots"></i> */}
+      <div className="cardsPageContainer">
+        <div className="cardsPageBanner">
+          <button className="backButton"></button>
+          <div className="BannerTitle">
+            <h1>NurMusik</h1>
+          </div>
+          <div className="HeaderPadding"></div>
         </div>
-        <div className="genre-cards-container">
+
+        <div className="searchBar"></div>
+
+        <div className="genre-cards-container notFilled">
           {tags.map((genre, idx) => (
             <button
               key={idx}
-              className="genre-card"
+              className="card m-1 p-2 cardsPage"
               onClick={() => goToPosts(genre)}
             >
-              {genre.at(0).toUpperCase() + genre.slice(1)}
+              <h5>{genre.at(0).toUpperCase() + genre.slice(1)}</h5>
             </button>
           ))}
         </div>

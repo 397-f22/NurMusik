@@ -9,7 +9,7 @@ const Timer = ({ playState, stopPlayer, duration, timerKey, setTimerKey }) => {
       key={timerKey}
       isPlaying={playState}
       duration={duration}
-      colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+      colors={["#ffffff", "#270045", "#502670", "#8a5aaf"]}
       colorsTime={[10, 6, 3, 0]}
       onComplete={() => {
         stopPlayer();
