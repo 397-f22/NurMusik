@@ -11,6 +11,7 @@ h5 {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent; 
+  font-size: 18px; 
 }
 
 .cardsPageContainer {
@@ -28,6 +29,7 @@ h5 {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: rgba(0, 0, 0, 0.25);
+
   border-bottom: 1px solid white;
   border-left: 1px solid white;
   border-right: 1px solid white;
@@ -77,6 +79,21 @@ h5 {
   justify-content: center;
   display: flex;
   width: 100vw;
+}
+
+.homeCards{ 
+  min-height: 4rem; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px; 
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+  background-color: white;
+
+}
+
+.card-body{ 
+  padding: 10px; 
 }
 
 .card.m-1.p-2.cardsPage{ 

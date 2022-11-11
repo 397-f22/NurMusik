@@ -28,10 +28,13 @@ const Home = () => {
           {tags.map((genre, idx) => (
             <button
               key={idx}
-              className="card m-1 p-2 cardsPage"
+              // className="card m-1 p-2 cardsPage"
+              className="homeCards"
               onClick={() => goToPosts(genre)}
             >
-              <h5>{genre.at(0).toUpperCase() + genre.slice(1)}</h5>
+              <div className="card-body">
+                <h5>{genre.at(0).toUpperCase() + genre.slice(1)}</h5>
+              </div>
             </button>
           ))}
         </div>

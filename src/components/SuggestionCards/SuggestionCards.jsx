@@ -70,7 +70,8 @@ const SuggestionCard = ({}) => {
 
         <div className="genre-cards-container">
           {stations.map((station) => (
-            <div key={station.id} className="card m-1 p-2 cardsPage">
+            <div key={station.id}               className="homeCards"
+            >
               <Link
                 to={`/player/${station.name}`}
                 state={station}
