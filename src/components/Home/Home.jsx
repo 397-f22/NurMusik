@@ -28,7 +28,6 @@ const Home = () => {
           {tags.map((genre, idx) => (
             <button
               key={idx}
-              // className="card m-1 p-2 cardsPage"
               className="homeCards"
               onClick={() => goToPosts(genre)}
             >

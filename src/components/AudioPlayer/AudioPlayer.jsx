@@ -97,7 +97,7 @@ const Player = () => {
           <div className="time-selector-container">
             <label style={{ fontWeight: "bold" }}>
               <select
-                className="time-selector mx-2"
+                className={`time-selector mx-2 ${playState}`}
                 required={true}
                 value={minutesState}
                 disabled={playState}
@@ -115,7 +115,7 @@ const Player = () => {
             </label>
             <label style={{ fontWeight: "bold" }}>
               <select
-                className="time-selector mx-2"
+                className={`time-selector mx-2 ${playState}`}
                 required={true}
                 value={secondsState}
                 disabled={playState}
