@@ -1,12 +1,9 @@
-import "./SuggestionCards.css";
-import { tagMappings } from "../../utilities/constants";
-
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { RadioBrowserApi } from "radio-browser-api";
-import SearchBar from "../SearchBar/SearchBar";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../Home/Home.css";
+import SearchBar from "../SearchBar/SearchBar";
+import "./SuggestionCards.css";
 
 const SuggestionCard = ({}) => {
   const api = new RadioBrowserApi("My Radio App");
@@ -14,9 +11,7 @@ const SuggestionCard = ({}) => {
   const [intialized, setInitialized] = useState(false);
 
   let { tags } = useParams();
-  let genre = useLocation().pathname.split("/")[2];
   const navigate = useNavigate();
-
 
   useEffect(() => {
     async function getStations() {
@@ -26,7 +21,12 @@ const SuggestionCard = ({}) => {
           limit: 50,
           offset: 0, // this is the default - can be omited
         })
-      ).filter((station) => station.name != "" && !station.name.includes("- 0 N -") && !station.name.includes("- 1 A -"));
+      ).filter(
+        (station) =>
+          station.name != "" &&
+          !station.name.includes("- 0 N -") &&
+          !station.name.includes("- 1 A -")
+      );
       setStations(waiting_stations);
       setInitialized(true);
     }
@@ -34,20 +34,15 @@ const SuggestionCard = ({}) => {
   }, [intialized]);
 
   if (!intialized) {
-    return (
-      <>
-        <SearchBar setStations={setStations} tags={tags} />
-        <h1>Stations loading...</h1>
-      </>
-    );
+    return <h1 className="loading-screen">Stations loading...</h1>;
   }
 
   const firstThreeWords = (stationName) => {
-    const splitNames = stationName.replaceAll('_', '').split(" ");
-    let returnedName = splitNames
+    const splitNames = stationName.replaceAll("_", "").split(" ");
+    let returnedName = splitNames;
     splitNames.length < 4
-      ? returnedName = stationName
-      : returnedName = splitNames.slice(0, 4).join(" ");
+      ? (returnedName = stationName)
+      : (returnedName = splitNames.slice(0, 4).join(" "));
     return returnedName;
   };
 
@@ -70,8 +65,7 @@ const SuggestionCard = ({}) => {
 
         <div className="genre-cards-container">
           {stations.map((station) => (
-            <div key={station.id}               className="homeCards"
-            >
+            <div key={station.id} className="homeCards">
               <Link
                 to={`/player/${station.name}`}
                 state={station}

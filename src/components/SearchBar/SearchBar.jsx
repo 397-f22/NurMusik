@@ -1,5 +1,6 @@
 import { RadioBrowserApi } from "radio-browser-api";
 import { useState } from "react";
+import "./SearchBar.css";
 
 const SearchBar = ({ setStations, tags = "" }) => {
   const api = new RadioBrowserApi("My Radio App");
@@ -24,6 +25,7 @@ const SearchBar = ({ setStations, tags = "" }) => {
 
   return (
     <input
+      className="search-bar"
       type="search"
       placeholder="Enter Radio Name:"
       onChange={(e) => setUserInput(e.currentTarget.value)}

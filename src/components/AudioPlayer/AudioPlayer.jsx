@@ -63,7 +63,7 @@ const Player = () => {
   const togglePlayer = () => (playState ? stopPlayer() : startPlayer());
 
   if (station == undefined) {
-    return <h1>loading...</h1>;
+    return <h1 className="loading-screen">loading...</h1>;
   }
 
   return (
@@ -84,7 +84,6 @@ const Player = () => {
 
         <div className="RadioInfo">
           <h1 className="radio-name">{station.name}</h1>
-
         </div>
         <div className="TimerInfo">
           <Timer
